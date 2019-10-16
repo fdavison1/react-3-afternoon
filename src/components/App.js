@@ -45,8 +45,12 @@ class App extends Component {
     })
   }
 
-  createPost() {
-
+  createPost(text) {
+    axios
+    .post(`https://practiceapi.devmountain.com/api/posts`, {text})
+    .then(res=> {
+      this.setState({posts: res.data})
+    })
   }
 
   render() {
@@ -58,7 +62,11 @@ class App extends Component {
 
         <section className="App__content">
 
-          <Compose />
+          <Compose createPostFn = {this.createPost}/>
+          
+          
+          
+          
           {posts.map(post => ( <Post 
             key={post.id} 
             text={post.text} 
@@ -66,6 +74,7 @@ class App extends Component {
             id = {post.id}
             updatePostFn = {this.updatePost}
             deletePostFn = {this.deletePost}
+            // createPostFn = {this.createPost}
             /> ))}
         </section>
       </div>
