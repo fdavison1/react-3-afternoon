@@ -68,7 +68,7 @@ const {text,date} = this.props
           {/* Drop-down menu. Remember that the "showMasterMenu" variable has been destructured off of this.state */}
           <div className="Post__master-menu" style={ { display: showMasterMenu ? 'flex' : 'none' } }>
             <span onClick={ this.showEdit }>Edit</span>
-            <span>Delete</span>
+            <span onClick={()=> this.props.deletePostFn(this.props.id)}>Delete</span>
           </div>
         </div>
 
