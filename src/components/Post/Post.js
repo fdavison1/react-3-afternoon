@@ -97,8 +97,10 @@ const {text,date} = this.props
             // This has been pulled off of this.state via destructuring
             editing
             ?
-              <Edit text=""
-                    hideEdit={ this.hideEdit } />
+              <Edit text={text}
+                    id={this.props.id}
+                    hideEdit={ this.hideEdit } 
+                    updatePostFn={this.props.updatePostFn}/>
             :
               <span className="Post__text">{text}</span>
           }
